@@ -17,10 +17,10 @@ public:
                 i++;
             }
 
-                cur = j-i+1;
-                if(cur > max){
-                    max = cur;
-                }
+            cur = j-i+1;
+            if(cur > max){
+                max = cur;
+            }
             
             j++;
         }
