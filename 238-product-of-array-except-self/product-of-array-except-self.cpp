@@ -5,18 +5,14 @@ public:
 
         int left = 1;
         for(int i = 0;i < nums.size();i++){
-            if(i != 0){
-                left *= nums[i-1];
-            }
-            output[i] = left;
+            output[i] *= left;
+            left *= nums[i];
         }
 
         int right = 1;
         for(int i = nums.size()-1;i >= 0;i--){
-            if(i != nums.size()-1){
-                right *= nums[i+1];
-            }
             output[i] *= right;
+            right *= nums[i];
         }
         return output;
     }
