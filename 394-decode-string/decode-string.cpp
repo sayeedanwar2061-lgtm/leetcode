@@ -42,11 +42,9 @@ public:
         }
 
         while (!lt.empty()) {
-            output.push_back(lt.top());
+            output = lt.top() + output;
             lt.pop();
         }
-
-        reverse(output.begin(), output.end());
         return output;
     }
 };
