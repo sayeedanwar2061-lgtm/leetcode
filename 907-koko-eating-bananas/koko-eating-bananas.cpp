@@ -9,9 +9,7 @@ public:
             high = max(high, pile);
         }
 
-        int ans = -1;
-
-        while (low <= high) {
+        while (low < high) {
             int k = low + (high - low) / 2;
 
             long long hours = 0;
@@ -21,13 +19,12 @@ public:
             }
 
             if(hours <= h){
-                ans = k;
-                high = k-1;
+                high = k;
             }else{
                 low = k+1;
             }
         }
 
-        return ans;
+        return low;
     }
 };
