@@ -14,26 +14,20 @@ public:
         while (low <= high) {
             int k = low + (high - low) / 2;
 
-            if (canEat(piles, h, k)) {
+            long long hours = 0;
+
+            for (int pile : piles) {
+                hours += (pile + k - 1) / k;
+            }
+
+            if(hours <= h){
                 ans = k;
-                high = k - 1;
-            } else {
-                low = k + 1;
+                high = k-1;
+            }else{
+                low = k+1;
             }
         }
 
         return ans;
-    }
-
-    bool canEat(const vector<int>& piles, int h, int k) {
-        int hours = 0;
-
-        for (int pile : piles) {
-            hours += (pile + k - 1) / k;
-
-            if (hours > h) return false;
-        }
-
-        return hours <= h;
     }
 };
