@@ -11,20 +11,16 @@ public:
 
         while (low < high) {
             int k = low + (high - low) / 2;
-
             long long hours = 0;
-
             for (int pile : piles) {
                 hours += (pile + k - 1) / k;
             }
-
-            if(hours <= h){
-                high = k;
-            }else{
+            if(hours > h){
                 low = k+1;
+            }else{
+                high = k;
             }
         }
-
         return low;
     }
 };
